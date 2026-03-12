@@ -11,14 +11,12 @@ use App\Models\RuangUjian;
 
 class DashboardController extends Controller {
     public function index() {
-        $data = [
-            'total_siswa' => Siswa::count(),
-            'total_guru' => Guru::count(),
-            'total_kelas' => Kelas::count(),
-            'total_mapel' => Mapel::count(),
-            'total_bank_soal' => BankSoal::count(),
-            'total_ruang_ujian' => RuangUjian::count(),
-        ];
-        return view('pages.Admin.dashboard', $data);
+        $siswaCount = Siswa::count();
+        $guruCount = Guru::count();
+        $kelasCount = Kelas::count();
+        $mapelCount = Mapel::count();
+        $bankSoalCount = BankSoal::count();
+        $ruangUjianCount = RuangUjian::count();
+        return view('pages.Admin.dashboard', compact('siswaCount', 'guruCount', 'kelasCount', 'mapelCount', 'bankSoalCount', 'ruangUjianCount'));
     }
 }

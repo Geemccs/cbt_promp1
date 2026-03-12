@@ -34,6 +34,7 @@
                 <p class="px-3 py-1 text-xs text-blue-400 uppercase mt-3">Ujian</p>
                 <a href="{{ route('admin.bank-soal.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('admin.bank-soal.*') ? 'active' : '' }}"><i class="fas fa-database w-5 mr-2"></i> Bank Soal</a>
                 <a href="{{ route('admin.ruang-ujian.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('admin.ruang-ujian.*') ? 'active' : '' }}"><i class="fas fa-door-open w-5 mr-2"></i> Ruang Ujian</a>
+                <a href="{{ route('admin.monitoring.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('admin.monitoring.*') ? 'active' : '' }}"><i class="fas fa-desktop w-5 mr-2"></i> Monitoring</a>
                 <p class="px-3 py-1 text-xs text-blue-400 uppercase mt-3">Pengaturan</p>
                 <a href="{{ route('admin.exambrowser.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('admin.exambrowser.*') ? 'active' : '' }}"><i class="fas fa-shield-alt w-5 mr-2"></i> Exambrowser</a>
                 <a href="{{ route('admin.pengumuman.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('admin.pengumuman.*') ? 'active' : '' }}"><i class="fas fa-bullhorn w-5 mr-2"></i> Pengumuman</a>
@@ -43,6 +44,7 @@
                 <p class="px-3 py-1 text-xs text-blue-400 uppercase mt-3">Ujian</p>
                 <a href="{{ route('guru.bank-soal.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('guru.bank-soal.*') ? 'active' : '' }}"><i class="fas fa-database w-5 mr-2"></i> Bank Soal</a>
                 <a href="{{ route('guru.ruang-ujian.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('guru.ruang-ujian.*') ? 'active' : '' }}"><i class="fas fa-door-open w-5 mr-2"></i> Ruang Ujian</a>
+                <a href="{{ route('guru.monitoring.index') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('guru.monitoring.*') ? 'active' : '' }}"><i class="fas fa-desktop w-5 mr-2"></i> Monitoring</a>
             @elseif(Auth::guard('siswa')->check())
                 <a href="{{ route('siswa.dashboard') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('siswa.dashboard') ? 'active' : '' }}"><i class="fas fa-home w-5 mr-2"></i> Dashboard</a>
                 <a href="{{ route('siswa.ruang-ujian') }}" class="flex items-center px-3 py-2 rounded text-white {{ request()->routeIs('siswa.ruang-ujian') ? 'active' : '' }}"><i class="fas fa-pencil-alt w-5 mr-2"></i> Masuk Ujian</a>
