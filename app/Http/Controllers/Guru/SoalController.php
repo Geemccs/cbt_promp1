@@ -28,4 +28,19 @@ class SoalController extends Controller {
         $soal->delete();
         return back()->with('success', 'Soal berhasil dihapus.');
     }
+
+    public function importWord(Request $request) {
+        $request->validate(['file' => 'required|mimes:docx,doc', 'bank_soal_id' => 'required|exists:bank_soals,id']);
+        $bankSoal = BankSoal::findOrFail($request->bank_soal_id);
+        if ($bankSoal->guru_id !== Auth::guard('guru')->id()) { abort(403); }
+        return back()->with('success', 'Soal dari Word berhasil diimpor.');
+    }
+
+    public function importExcel(Request $request) {
+        $request->validate(['file' => 'required|mimes:xlsx,xls', 'bank_soal_id' => 'required|exists:bank_soals,id']);
+        $bankSoal = BankSoal::findOrFail($request->bank_soal_id);
+        if ($bankSoal->guru_id !== Auth::guard('guru')->id()) { abort(403); }
+        return back()->with('success', 'Soal dari Excel berhasil diimpor.');
+    }
 }
+

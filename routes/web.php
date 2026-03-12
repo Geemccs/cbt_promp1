@@ -53,6 +53,7 @@ Route::prefix('admin')->middleware('admin.auth')->name('admin.')->group(function
     Route::delete('/ruang-ujian/{ruangUjian}', [\App\Http\Controllers\Admin\RuangUjianController::class, 'destroy'])->name('ruang-ujian.destroy');
     Route::get('/ruang-ujian/{ruangUjian}/monitoring', [\App\Http\Controllers\Admin\RuangUjianController::class, 'monitoring'])->name('ruang-ujian.monitoring');
     Route::post('/ruang-ujian/{ruangUjian}/reset-siswa', [\App\Http\Controllers\Admin\RuangUjianController::class, 'resetSiswa'])->name('ruang-ujian.reset-siswa');
+    Route::get('/monitoring', [\App\Http\Controllers\Admin\MonitoringController::class, 'index'])->name('monitoring.index');
     Route::get('/exambrowser', [\App\Http\Controllers\Admin\ExambrowserController::class, 'index'])->name('exambrowser.index');
     Route::post('/exambrowser/toggle', [\App\Http\Controllers\Admin\ExambrowserController::class, 'toggle'])->name('exambrowser.toggle');
     Route::get('/administrator', [\App\Http\Controllers\Admin\AdministratorController::class, 'index'])->name('administrator.index');
@@ -75,11 +76,14 @@ Route::prefix('guru')->middleware('guru.auth')->name('guru.')->group(function ()
     Route::post('/soal', [\App\Http\Controllers\Guru\SoalController::class, 'store'])->name('soal.store');
     Route::put('/soal/{soal}', [\App\Http\Controllers\Guru\SoalController::class, 'update'])->name('soal.update');
     Route::delete('/soal/{soal}', [\App\Http\Controllers\Guru\SoalController::class, 'destroy'])->name('soal.destroy');
+    Route::post('/soal/import-word', [\App\Http\Controllers\Guru\SoalController::class, 'importWord'])->name('soal.import-word');
+    Route::post('/soal/import-excel', [\App\Http\Controllers\Guru\SoalController::class, 'importExcel'])->name('soal.import-excel');
     Route::get('/ruang-ujian', [\App\Http\Controllers\Guru\RuangUjianController::class, 'index'])->name('ruang-ujian.index');
     Route::post('/ruang-ujian', [\App\Http\Controllers\Guru\RuangUjianController::class, 'store'])->name('ruang-ujian.store');
     Route::put('/ruang-ujian/{ruangUjian}', [\App\Http\Controllers\Guru\RuangUjianController::class, 'update'])->name('ruang-ujian.update');
     Route::delete('/ruang-ujian/{ruangUjian}', [\App\Http\Controllers\Guru\RuangUjianController::class, 'destroy'])->name('ruang-ujian.destroy');
     Route::get('/ruang-ujian/{ruangUjian}/monitoring', [\App\Http\Controllers\Guru\RuangUjianController::class, 'monitoring'])->name('ruang-ujian.monitoring');
+    Route::get('/monitoring', [\App\Http\Controllers\Guru\MonitoringController::class, 'index'])->name('monitoring.index');
 });
 
 Route::prefix('siswa')->middleware('siswa.auth')->name('siswa.')->group(function () {
